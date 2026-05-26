@@ -10,7 +10,7 @@ default HD path.
 ## Install
 
 ```sh
-npm install ape-accounts
+npm install @apeworx/ape-accounts
 ```
 
 Peer-friendly with [viem](https://viem.sh/) — signing is delegated to viem's `PrivateKeyAccount`,
@@ -22,7 +22,7 @@ In the browser there's no filesystem, so the caller is responsible for loading a
 keystore JSON. See [Browser persistence](#browser-persistence) below for storage strategies.
 
 ```ts
-import { KeyfileAccount, generateAccount, importFromPrivateKey } from 'ape-accounts'
+import { KeyfileAccount, generateAccount, importFromPrivateKey } from '@apeworx/ape-accounts'
 
 // Load from a JSON string (file picker, fetch, IndexedDB, chrome.storage, ...)
 const account = KeyfileAccount.fromKeystoreJson(keystoreJson, { alias: 'main' })
@@ -60,7 +60,7 @@ In Node there's a fs-backed `AccountContainer` that mirrors ape's behavior, defa
 `~/.ape/accounts` (or `$APE_HOME/accounts`):
 
 ```ts
-import { AccountContainer } from 'ape-accounts/node'
+import { AccountContainer } from '@apeworx/ape-accounts/node'
 
 const container = new AccountContainer() // defaults to ~/.ape/accounts
 // or: new AccountContainer({ dataFolder: '/custom/path' })
@@ -122,7 +122,7 @@ Recommended approach for a browser wallet:
 A sketch of a browser `AccountContainer`-like wrapper around IndexedDB (~30 lines, not shipped):
 
 ```ts
-import { KeyfileAccount, type KeystoreV3 } from 'ape-accounts'
+import { KeyfileAccount, type KeystoreV3 } from '@apeworx/ape-accounts'
 
 class BrowserAccountStore {
   constructor(private db: IDBDatabase, private store = 'keystores') {}
@@ -156,11 +156,11 @@ class BrowserAccountStore {
 ```
 
 When the ext wallet matures, this could become a first-class `BrowserAccountContainer` exported
-from `ape-accounts/browser`. Not in v0 — happy to add it.
+from `@apeworx/ape-accounts/browser`. Not in v0 — happy to add it.
 
 ## API reference
 
-### Universal (`ape-accounts`)
+### Universal (`@apeworx/ape-accounts`)
 
 - `class KeyfileAccount`
   - `constructor(keystore, { alias? })` / `static fromKeystore(keystore, opts?)` / `static fromKeystoreJson(json, opts?)`
@@ -178,7 +178,7 @@ from `ape-accounts/browser`. Not in v0 — happy to add it.
 - `ETHEREUM_DEFAULT_PATH = "m/44'/60'/0'/0/0"`
 - Errors: `AccountsError`, `InvalidPasswordError`, `AccountLockedError`, `AliasError`
 
-### Node (`ape-accounts/node`)
+### Node (`@apeworx/ape-accounts/node`)
 
 Everything above, plus:
 

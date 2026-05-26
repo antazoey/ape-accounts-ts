@@ -1,9 +1,20 @@
 {
-  "name": "ape-accounts",
+  "name": "@apeworx/ape-accounts",
   "version": "0.1.0",
   "description": "Read and manage Ape (ApeWorX) keyfile accounts from TypeScript. Works in Node and the browser.",
   "license": "MIT",
   "author": "antazoey",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antazoey/ape-accounts-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antazoey/ape-accounts-ts/issues"
+  },
+  "homepage": "https://github.com/antazoey/ape-accounts-ts#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
